@@ -25,12 +25,10 @@ A desktop application to extract and process transactions from CAMS Center State
 
 ### Option 2: Download Executable
 
-Download the pre-built executable for your platform from the [Releases](../../releases) page:
-- **Windows**: `CAMSExtractor-Windows.zip`
-- **Linux**: `CAMSExtractor-Linux.zip`
-- **macOS**: `CAMSExtractor-macOS.zip`
-
-Extract and run the executable directly - no Python installation required!
+Download the pre-built Windows executable from the [Actions](../../actions) page:
+- Go to the latest successful workflow run
+- Download **CAMSExtractor-Windows** artifact
+- Extract and run `CAMSExtractor.exe` - no Python installation required!
 
 ## Building Executable Locally
 
@@ -48,26 +46,17 @@ The executable will be created in the `dist/` folder.
 
 ### Manual PyInstaller Build
 ```bash
-# Windows
-pyinstaller --onefile --windowed --name "CAMSExtractor" gui_settings.py
-
-# Linux/macOS
-pyinstaller --onefile --windowed --name "CAMSExtractor" gui_settings.py
+pyinstaller --noconfirm CAMSExtractor.spec
 ```
 
 ## GitHub Actions Auto-Build
 
 This repository includes automated builds via GitHub Actions:
 
-1. **Push to main/master**: Builds executables for all platforms
-2. **Create a tag**: Builds and creates a GitHub Release
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-3. **Manual trigger**: Go to Actions tab → Build Executable → Run workflow
+1. **Push to main/master**: Automatically builds Windows executable
+2. **Manual trigger**: Go to Actions tab → Build Windows EXE → Run workflow
 
-Artifacts are available in the Actions tab for 30 days, or permanently in Releases.
+Build artifacts are available in the Actions tab for download.
 
 ## Usage
 
