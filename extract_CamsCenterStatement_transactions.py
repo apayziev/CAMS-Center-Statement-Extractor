@@ -58,12 +58,12 @@ def extract_time(cells, row_text):
 
 
 def extract_date(row_text):
-    """Extract date from row text and convert to MM/DD/YYYY format."""
+    """Extract date from row text (already in MM/DD/YYYY format)."""
     match = re.search(r'(\d{1,2})/(\d{1,2})/(\d{4})', row_text)
     if match:
-        # Assume input is DD/MM/YYYY, convert to MM/DD/YYYY
-        day = match.group(1).zfill(2)
-        month = match.group(2).zfill(2)
+        # Input is already MM/DD/YYYY, just format with leading zeros
+        month = match.group(1).zfill(2)
+        day = match.group(2).zfill(2)
         year = match.group(3)
         return f"{month}/{day}/{year}"
     return None
